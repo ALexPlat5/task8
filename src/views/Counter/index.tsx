@@ -1,4 +1,8 @@
 import React from "react";
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import { Button } from "@mui/material";
+import {Item, CounterItem, ButtonsContainer} from './style'
 
 type CounterProps = {
     state: number,
@@ -9,14 +13,14 @@ type CounterProps = {
 
 const Counter = ({state, increment, decrement, reset}: CounterProps) => {
     return (
-        <div>
-            <h1>{state}</h1>
-            <div>
-                <button onClick={increment}>+</button>
-                <button onClick={decrement}>-</button>
-                <button onClick={reset}>Reset</button>
-            </div>
-        </div>
+        <CounterItem>
+            <Item>{state}</Item>
+            <ButtonsContainer>
+                <Button onClick={increment}>+</Button>
+                <Button onClick={decrement}>-</Button>
+                <Button onClick={reset}>Reset</Button>
+            </ButtonsContainer>
+        </CounterItem>
     );
 }
 

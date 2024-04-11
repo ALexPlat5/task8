@@ -3,14 +3,20 @@ import Counter from "../views/Counter";
 
 type CounterContainerState = {
     count: number;
+    enum: boolean;
 };
 
-class CounterContainer extends React.Component<{}, CounterContainerState> {
+type CounterContainerProp = {
+    enum: boolean;
+    action: string;
+}
+
+class CounterContainer extends React.Component<CounterContainerProp, CounterContainerState> {
     state: CounterContainerState;
 
-    constructor() {
-        super({});
-        this.state = { count: 0 };
+    constructor(props: CounterContainerProp) {
+        super(props);
+        this.state = { count: 0, enum: this.props.enum };
         this.increment = this.increment.bind(this);
         this.decrement = this.decrement.bind(this);
         this.reset = this.reset.bind(this);
@@ -33,6 +39,24 @@ class CounterContainer extends React.Component<{}, CounterContainerState> {
             { count: 0 }
         ))
     }
+
+
+    componentWillReceiveProps(nextProps: Readonly<CounterContainerProp>, nextContext: any): void {
+        console.log('hihih')
+        if (nextProps.action==='add'&& this.state.enum) {
+            this.increment()
+        } else if (nextProps.action==='reset') {
+            this.reset()
+        }
+    }
+
+
+    componentWillMount(): void {
+        if (this.props.action==='add'&&this.state.enum) {
+            this.increment()
+        } 
+    }
+
 
     render() {
         return (
