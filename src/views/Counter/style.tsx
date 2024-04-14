@@ -1,10 +1,10 @@
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { NavLink } from 'react-router-dom';
+import { FormControl } from '@mui/material';
 
 const Item = styled(Paper)(({theme})=>({
     backgroundColor: '#fff',
-    //...theme.typography.body2,
     display:'flex',
     position:'relative',
     justifyContent: 'center',
@@ -50,23 +50,10 @@ const ErrorPageClass = styled(Paper)(({theme})=>({
     alignItems: 'center'
 }))
 
-const NavBar = styled(Paper)(({theme})=>({
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    padding: 0,
-    display: 'flex-inline',
-    justifyContent:'flex-start',
-    alignContent: 'center',
-    width: '100%',
-    height: '60px',
-    margin: '10px 10px',
-    zIndex: 10
-}))
-
 const Page = styled(Paper)(({theme})=>({
     backgroundColor:'#fafaff',
     width: '100%',
+    boxSizing: 'border-box',
     padding: '10px 5px',
     position: 'relative',
     top: 70,
@@ -75,14 +62,22 @@ const Page = styled(Paper)(({theme})=>({
     margin: '5px 0'
 }))
 
+const NavBar = styled(Paper)(({theme})=>({
+    position: 'fixed',
+    left: 0,
+    margin: 0,
+    display: 'flex',
+    width: '100%',
+    alignItems: 'center',
+    height: '60px',
+    zIndex: 10
+}))
+
 const NavButton = styled(NavLink)({
-    boxShadow: 'none',
-    textTransform: 'none',
     fontSize: 16,
     padding: '6px 12px',
     margin: '0 10px',
     border: '1px solid',
-    lineHeight: 1.5,
     borderColor: '#0063cc',
     textDecoration: "none",
     color: '#0062cc',
@@ -93,11 +88,6 @@ const NavButton = styled(NavLink)({
       '"Segoe UI"',
       'Roboto',
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
     ].join(','),
     '&.active': {
       boxShadow: 'none',
@@ -112,5 +102,5 @@ const NavButton = styled(NavLink)({
 export  { 
     Item, CounterItem, NavButton,
     ButtonsContainer, CountersContainerClass, 
-    ErrorPageClass, NavBar, Page 
+    ErrorPageClass, NavBar, Page
  }
