@@ -2,7 +2,7 @@
   "name": "test_task_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ALexPlat5.github.io/task2",
+  "homepage": "https://ALexPlat5.github.io/task4",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
