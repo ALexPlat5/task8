@@ -5,23 +5,25 @@ import { selectUser, selectIsLogged, emailUpdate, passwordUpdate, logIn } from "
 import { useAppDispatc } from "../app/hooks";
 import { changeHandler, submitHandler } from "../features/logInFunctions";
 
-
 export default function LogInReduxContainer() {
     const dispatch = useAppDispatc()
     const user = useSelector(selectUser)
     const isLogged = useSelector(selectIsLogged)
 
     if (isLogged) {
-        return <Navigate to='/profile'/>
+        return <Navigate to={'/login-redux/profile'} />
     }
 
     return (
-        <LogIn state={user} changeHandler={(event)=>
-            changeHandler( 
-                event, 
-                (str)=>dispatch(emailUpdate(str)),
-                (str)=>dispatch(passwordUpdate(str))
-            )}
-            submitHandler={(event)=>submitHandler(event, user, ()=>dispatch(logIn()))}/>
+        <>
+            <LogIn state={user} changeHandler={(event)=>
+                changeHandler( 
+                    event, 
+                    (str)=>dispatch(emailUpdate(str)),
+                    (str)=>dispatch(passwordUpdate(str))
+                )}
+                submitHandler={(event)=>submitHandler(event, user, ()=>dispatch(logIn()))}
+            />
+        </>        
     )
 }

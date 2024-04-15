@@ -12,7 +12,7 @@ export default function Header() {
 
     const handleLogout = () => {
         dispatch(logOut())
-  }
+    }
 
     return (
         <NavBar>
@@ -22,8 +22,8 @@ export default function Header() {
             {
                 isLogged?
                 <>
-                    <NavButton to='/profile'>Профиль</NavButton>
-                    <NavButton onClick={handleLogout} to='/login-redux' style={{justifySelf: 'end', marginLeft: 'auto'}}>Выйти</NavButton>
+                    <NavButton to='/login-redux/profile'>Профиль</NavButton>
+                    <NavButton onClick={handleLogout} to='/' style={{justifySelf: 'end', marginLeft: 'auto'}}>Выйти</NavButton>
                 </>:
                 <>
                     <NavButton to='/login-redux' style={{justifySelf: 'end', marginLeft: 'auto'}}>Войти Redux</NavButton>

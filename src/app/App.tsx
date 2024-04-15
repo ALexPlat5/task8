@@ -17,7 +17,7 @@ function App() {
                     <Route path="counter" element={ <Counters/> } />
                     <Route path="login" element={ <LogInContainer /> } />
                     <Route path="login-redux" element ={ <LogInReduxContainer />} />
-                    <Route path="profile" element={ <ProfileContainer /> } />
+                    <Route path="login-redux/profile" element={ <ProfileContainer /> } />
                 </Route>
                 <Route path="/*" element={ <ErrorPage/> } />
             </Routes>

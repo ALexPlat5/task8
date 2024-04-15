@@ -8,8 +8,8 @@ export default function ProfileContainer() {
     const user = useSelector(selectUser);
     const isLogged = useSelector(selectIsLogged);
 
-    if (!isLogged) {
-        return <Navigate to='/login-redux' />
+    if(!isLogged) {
+        return <Navigate to={'/login-redux'} />
     }
 
     return (
