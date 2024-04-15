@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { NavLink } from 'react-router-dom';
 
-const Item = styled(Paper)(({theme})=>({
+const Item = styled('div')(({theme})=>({
     backgroundColor: '#fff',
     display:'flex',
     position:'relative',

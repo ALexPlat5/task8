@@ -7,6 +7,7 @@ import LogInContainer from "../containers/LogInContainer";
 import LogInReduxContainer from "../containers/LogInReduxContainer";
 import ProfileContainer from "../containers/ProfileContainer";
 import { Route, HashRouter, Routes } from 'react-router-dom';
+import FormikContainer from "../containers/FormikContainer";
 
 function App() {    
     return ( 
@@ -16,8 +17,9 @@ function App() {
                     <Route path="about" element={ <About /> } />
                     <Route path="counter" element={ <Counters/> } />
                     <Route path="login" element={ <LogInContainer /> } />
+                    <Route path="login-formik" element={ <FormikContainer/>} />                    
                     <Route path="login-redux" element ={ <LogInReduxContainer />} />
-                    <Route path="login-redux/profile" element={ <ProfileContainer /> } />
+                    <Route path=":typeLog/profile" element={ <ProfileContainer /> } />
                 </Route>
                 <Route path="/*" element={ <ErrorPage/> } />
             </Routes>

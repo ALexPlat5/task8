@@ -2,11 +2,11 @@ import LogIn from "../views/Counter/LogIn";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { selectUser, selectIsLogged, emailUpdate, passwordUpdate, logIn } from "../features/logIn/logInSlice";
-import { useAppDispatc } from "../app/hooks";
+import { useAppDispatch } from "../app/hooks";
 import { changeHandler, submitHandler } from "../features/logInFunctions";
 
 export default function LogInReduxContainer() {
-    const dispatch = useAppDispatc()
+    const dispatch = useAppDispatch()
     const user = useSelector(selectUser)
     const isLogged = useSelector(selectIsLogged)
 

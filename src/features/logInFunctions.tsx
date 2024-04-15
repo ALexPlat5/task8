@@ -7,6 +7,14 @@ export type User = {
     password: string
 }
 
+export function validateEmail(
+    email:string, 
+){
+    const regEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    
+    return regEx.test(email);
+}
+
 export function changeHandler (
     event:InputEvent,
     mailUpdate:(email:string)=>void,
@@ -25,11 +33,10 @@ export const submitHandler = (
     user:User, 
     resolve:()=>void, 
 ) => {
-    const regEx = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
     event.preventDefault()
-    if (regEx.test(user.email)) {
+    if (validateEmail(user.email)) {
         resolve();
-        console.log(JSON.stringify(user));
+        console.log(JSON.stringify(user, null, 2));
     } else {
         alert('Введите корректный адрес электронной почты');
     }

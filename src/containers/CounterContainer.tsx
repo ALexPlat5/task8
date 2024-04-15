@@ -42,7 +42,7 @@ class CounterContainer extends React.Component<CounterContainerProp, CounterCont
 
 
     componentWillReceiveProps(nextProps: Readonly<CounterContainerProp>, nextContext: any): void {
-        console.log('hihih')
+        
         if (nextProps.action==='add'&& this.state.enum) {
             this.increment()
         } else if (nextProps.action==='reset') {

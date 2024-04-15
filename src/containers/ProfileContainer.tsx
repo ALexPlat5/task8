@@ -9,7 +9,7 @@ export default function ProfileContainer() {
     const isLogged = useSelector(selectIsLogged);
 
     if(!isLogged) {
-        return <Navigate to={'/login-redux'} />
+        return <Navigate to={'/'} />
     }
 
     return (
