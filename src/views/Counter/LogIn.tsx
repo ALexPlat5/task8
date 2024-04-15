@@ -1,17 +1,10 @@
-import React, { ChangeEvent,FormEvent } from 'react';
+import React from 'react';
 import { Page } from './style';
 import { FormControl } from '@mui/material';
-
-type InputEvent = ChangeEvent<HTMLInputElement>;
-type SubmitEvent = FormEvent<HTMLFormElement>;
-
-type inputsData = {
-    email: string
-    password: string
-}
+import { InputEvent, SubmitEvent, User } from '../../features/logInFunctions';
 
 type LogInProps = {
-    state: inputsData,
+    state: User,
     changeHandler: (event:InputEvent)=>void,
     submitHandler: (event:SubmitEvent)=>void
 }

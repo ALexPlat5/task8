@@ -1,43 +1,25 @@
-import React, {useState, ChangeEvent, FormEvent} from "react";
+import React, {useState} from "react";
 import LogIn from "../views/Counter/LogIn";
-
-
-type inputsData = {
-    email: string
-    password: string
-}
-
-type InputEvent = ChangeEvent<HTMLInputElement>;
-type SubmitEvent = FormEvent<HTMLFormElement>;
+import { changeHandler, submitHandler } from "../features/logInFunctions";
+import type { User } from "../features/logInFunctions";
 
 export default function LogInContainer () {
-    const [ inputsValue, setInputsValue ] = useState<inputsData>({email:'', password:''});
-
-    const changeHandler = (event:InputEvent) => {
-        event.preventDefault()
-        
-        if(event.target.id==='mailInput') {
-            setInputsValue((prev)=>({...prev, email:event.target.value}))
-        } else {
-            setInputsValue((prev)=>({...prev, password:event.target.value}))
-        }
-    }
-
-    const submitHandler = (event:SubmitEvent) => {
-        const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-        event.preventDefault()
-        if (regEx.test(inputsValue.email)) {
-            setInputsValue({email:'', password:''});
-            console.log(JSON.stringify(inputsValue));
-        } else {
-            alert('Введите корректный адрес электронной почты');
-        }
-    }
+    const [ inputsValue, setInputsValue ] = useState<User>({email:'', password:''});
 
     return (
     <LogIn 
         state={inputsValue}
-        changeHandler={changeHandler}
-        submitHandler={submitHandler}
+        changeHandler={(event)=>changeHandler(
+            event,
+            ()=>setInputsValue((prev)=>({...prev, email:event.target.value})),
+            ()=>setInputsValue((prev)=>({...prev, password:event.target.value}))
+        )}
+        submitHandler={(event)=>submitHandler(
+            event,
+            inputsValue,
+            ()=>
+                {alert(JSON.stringify(inputsValue))
+                setInputsValue({email:'', password:''})}
+        )}
     />)
 }
