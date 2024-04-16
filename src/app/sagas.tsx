@@ -14,7 +14,7 @@ type responseType = {
 
 function* fetchActivity() {
     try {
-        const response:AxiosResponse<responseType> = yield axios.get('http://www.boredapi.com/api/activity/')
+        const response:AxiosResponse<responseType> = yield axios.get('https://www.boredapi.com/api/activity/')
         yield put(successFetch(response.data))
     } catch (error) {
         yield put(errorFetch(error))
