@@ -1,14 +1,25 @@
-import React from "react";
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
+
+export type responseType = {
+    activity: string
+	accessibility: number,
+	type: string,
+	participants: number,
+	price: number,
+	link: string,
+	key: string
+}
 
 type activityType = {
-    data: null | string,
+    data: string,
     isLoading: boolean,
     errors: string
 }
 
 const activityInitialState: activityType = {
-    data: null,
+    data: '',
     isLoading: false,
     errors: ''
 }
@@ -17,11 +28,11 @@ export const activitySlice = createSlice({
     name: 'activity',
     initialState: activityInitialState,
     reducers: {
-        fetchData:(state, action) => {
+        fetchData:(state) => {
             state.isLoading = true
         },
-        successFetch:(state, action) => {
-            state.data = action.payload
+        successFetch:(state, action:PayloadAction<responseType>) => {
+            state.data = JSON.stringify(action.payload);
             state.isLoading = false
         },
         errorFetch:(state, action)=>{
@@ -31,5 +42,9 @@ export const activitySlice = createSlice({
     }
 })
 
+const selectLogin = (state:RootState) => state.activity;
+export const selectData = createSelector([selectLogin], activity=>activity.data)
+export const selectIsLoading = createSelector([selectLogin], activity=>activity.isLoading)
+export const selectError = createSelector([selectLogin], activity=>activity.errors)
 export const { fetchData, successFetch, errorFetch } = activitySlice.actions;
 export default activitySlice.reducer;

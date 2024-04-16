@@ -21,6 +21,7 @@ export default function Header() {
             <NavButton to='/about'>О нас</NavButton>
             <NavButton to='/counter'>Счетчики</NavButton>
             <NavButton to='/error' >404</NavButton>
+            <NavButton to='/activity'>Активность</NavButton>
             {
                 isLogged?
                 <>

@@ -1,4 +1,3 @@
-import { PayloadAction } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
 import { put, takeLatest } from "redux-saga/effects";
 import { successFetch, errorFetch } from "../features/activity/activitySlice";
@@ -16,7 +15,7 @@ type responseType = {
 function* fetchActivity() {
     try {
         const response:AxiosResponse<responseType> = yield axios.get('http://www.boredapi.com/api/activity/')
-        yield put(successFetch(response))
+        yield put(successFetch(response.data))
     } catch (error) {
         yield put(errorFetch(error))
     }
