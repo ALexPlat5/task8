@@ -26,17 +26,20 @@ export default function ActivityContainer() {
             {
                 isLoading?
                 <p>Создаем новю активность...</p>:
-                <Item>
+                <div>
                     {
                         data?
-                        <Item style={{flexDirection: 'column',
-                         justifyContent:'flex-start', alignItems:'flex-start', margin:0}}>
+                        <Item style={{
+                            flexDirection: 'column',
+                            justifyContent:'flex-start',
+                            alignItems:'flex-start', 
+                            margin:0}}>
                             <h1>Полученная активность:</h1>
                             {parse(JSON.parse(data))}
                         </Item>:
                         <p>Нет активности</p>
                     }
-                </Item>
+                </div>
             }
             <ButtonsContainer>
                 <Button style={{borderColor: 'blue'}} onClick={()=>dispatch(fetchData())}>Создать активность</Button>
