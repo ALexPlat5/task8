@@ -33,6 +33,7 @@ export default function Header() {
                     <NavButton to='/login-redux' style={{justifySelf: 'end', marginLeft: '10px'}}>Войти Redux</NavButton>
                 </>
             }
+            <NavButton to='/login-mst' style={{justifySelf: 'end', marginLeft: '10px'}} >Войти MST</NavButton>
             <NavButton to='/login' style={{justifySelf: 'end', marginLeft: '10px'}}>Войти</NavButton>
         </NavBar>
     )

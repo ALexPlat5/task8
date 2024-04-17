@@ -5,14 +5,12 @@ import Button from '@mui/material/Button';
 import { Page } from "../views/Counter/style";
 
 export default function Counters() {
-    const [uniqueKey, setUniqueKey ] = useState([0])
     const [counters, setCounters] = useState([false]);
     const [action, setAction] = useState('reset');
 
     const addCounter  = () =>{
         setCounters((prev)=>[...prev, !prev[prev.length-1]]);
         setAction('add')
-        setUniqueKey((prev)=>[...prev, prev.length]);
     }
     const deleteCounter = () => {
         setCounters((prev)=>prev.slice(0,prev.length-1));

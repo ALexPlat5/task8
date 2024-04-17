@@ -9,6 +9,8 @@ import ProfileContainer from "../containers/ProfileContainer";
 import { Route, HashRouter, Routes } from 'react-router-dom';
 import FormikContainer from "../containers/FormikContainer";
 import ActivityContainer from "../containers/ActivityContainer";
+import MstcContainer from "../containers/MstcContainer";
+import MstcProfile from "../containers/MstcProfile";
 
 
 function App() {    
@@ -21,6 +23,9 @@ function App() {
                     <Route path="login" element={ <LogInContainer /> } />
                     <Route path="login-formik" element={ <FormikContainer/>} />                    
                     <Route path="login-redux" element ={ <LogInReduxContainer />} />
+                    <Route path="login-mst" element={ <MstcContainer/>} >
+                        <Route path="profile" element= {<MstcProfile />}/>
+                    </Route>
                     <Route path=":typeLog/profile" element={ <ProfileContainer /> } />
                     <Route path="activity" element={ <ActivityContainer />} />
                 </Route>
